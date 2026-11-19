@@ -185,13 +185,16 @@ function searchBlob(p) {
   ].join(" ").toLowerCase();
 }
 
-/** Direct Ricacorp property page for this development (not the list/search page). */
+/** Direct Ricacorp property detail page, e.g.
+ *  https://www.ricacorp.com/zh-hk/new-property/detail/park-college-1002572
+ *  (without /detail/ the site falls back to the list page).
+ */
 function ricaPropertyUrl(p) {
-  if (p?.url) return p.url;
-  if (p?.developmentId) {
-    return `https://www.ricacorp.com/zh-hk/new-property/detail-${p.developmentId}`;
+  let url = p?.url || "";
+  if (url.includes("/new-property/") && !url.includes("/new-property/detail/")) {
+    url = url.replace("/new-property/", "/new-property/detail/");
   }
-  return "";
+  return url;
 }
 
 function renderTable(list) {
