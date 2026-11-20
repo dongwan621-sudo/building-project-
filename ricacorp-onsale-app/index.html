@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>利嘉閣一手在售新盤（完整 433）</title>
+<style>
+:root {
+  --bg:#0f1115; --panel:#171a21; --line:#2a3140; --text:#e8eaed;
+  --muted:#9aa3b2; --accent:#5b8def; --ok:#3dbe7a; --overlay:rgba(0,0,0,.55);
+}
+* { box-sizing:border-box; }
+body { margin:0; font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif; background:var(--bg); color:var(--text); }
+.wrap { max-width:1200px; margin:0 auto; padding:24px 16px 64px; }
+h1 { font-size:28px; margin:0 0 6px; }
+.sub { color:var(--muted); margin-bottom:16px; }
+.stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:18px; }
+.stat { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:14px; }
+.stat b { display:block; font-size:24px; }
+.stat span { color:var(--muted); font-size:13px; }
+.stat.ok b { color:var(--ok); }
+.controls { display:flex; gap:10px; flex-wrap:wrap; margin:16px 0; }
+input, select, button {
+  background:#12151c; color:var(--text); border:1px solid var(--line);
+  border-radius:8px; padding:10px 12px; font-size:14px;
+}
+input { flex:1; min-width:240px; }
+button { cursor:pointer; }
+.meta { color:var(--muted); margin-bottom:10px; }
+.table-wrap { overflow:auto; max-height:70vh; border:1px solid var(--line); border-radius:10px; }
+table { width:100%; border-collapse:collapse; background:var(--panel); }
+th, td { padding:10px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; font-size:13px; }
+th { position:sticky; top:0; background:#1c2230; color:var(--muted); font-weight:600; z-index:1; }
+tr:nth-child(even) td { background:#151922; }
+tr.prop-row { cursor:pointer; }
+tr.prop-row:hover td { background:#1d2533; }
+tr.prop-row.active td { background:#243147; outline:1px solid var(--accent); outline-offset:-1px; }
+a { color:var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.small { color:var(--muted); font-size:12px; }
+.right { text-align:right; }
+.name { color:var(--accent); font-weight:600; }
+.hint { color:var(--muted); font-size:13px; margin:0 0 12px; line-height:1.55; }
+.hint strong { color:var(--text); font-weight:600; }
+
+.backdrop {
+  position:fixed; inset:0; background:var(--overlay); display:none;
+  align-items:stretch; justify-content:flex-end; z-index:40;
+}
+.backdrop.open { display:flex; }
+.drawer {
+  width:min(440px, 100%); background:var(--panel); border-left:1px solid var(--line);
+  padding:20px; overflow:auto;
+}
+.drawer-head { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; margin-bottom:10px; }
+.drawer-head h2 { margin:0; font-size:20px; line-height:1.35; }
+.close-btn { border:none; background:transparent; color:var(--muted); font-size:22px; cursor:pointer; line-height:1; padding:0 4px; }
+.step {
+  font-size:12px; color:var(--muted); margin:0 0 14px;
+  padding:8px 10px; border:1px solid var(--line); border-radius:8px; background:#12151c;
+}
+.cover {
+  width:100%; aspect-ratio:396/270; object-fit:cover; border-radius:8px;
+  background:#12151c; border:1px solid var(--line); margin-bottom:14px; display:block;
+}
+.kv { display:grid; grid-template-columns:110px 1fr; gap:8px 10px; font-size:13px; margin-bottom:16px; }
+.kv dt { color:var(--muted); }
+.kv dd { margin:0; word-break:break-word; }
+.actions { display:flex; flex-direction:column; gap:8px; }
+.actions a, .actions button {
+  display:block; text-align:center; padding:12px 12px; border-radius:8px;
+  border:1px solid var(--line); background:#12151c; color:var(--text); text-decoration:none;
+}
+.actions a.primary {
+  background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600;
+}
+.actions a.primary:hover { text-decoration:none; filter:brightness(1.06); }
+.actions .target-url {
+  word-break:break-all; font-size:11px; color:var(--muted); text-align:left; line-height:1.4;
+}
+@media (max-width:800px){
+  .stats{grid-template-columns:1fr 1fr;}
+  .hide-m{display:none;}
+  .backdrop { align-items:flex-end; }
+  .drawer { width:100%; max-height:85vh; border-left:none; border-top:1px solid var(--line); border-radius:14px 14px 0 0; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>利嘉閣一手新盤 · 全部在售</h1>
+  <div class="sub">來源：ricacorp.com/zh-hk/new-property/list · 2026-11-19 · salesStatus=onsale · 共 433 盤</div>
+  <div class="sub" style="margin-top:-8px;margin-bottom:12px">
+    下載完整數據：
+    <a href="./ricacorp-onsale-firsthand.csv">CSV</a> ·
+    <a href="./ricacorp-onsale-firsthand.json">JSON</a>
+  </div>
+  <p class="hint">
+    <strong>①</strong> 點擊樓盤列（例如 PARK COLLEGE）→ 先在本頁顯示該盤詳情；
+    <strong>②</strong> 再點「在利嘉閣查看完整資料」→ 直接進入該盤利嘉閣頁面，無需再搜尋。
+  </p>
+
+  <div class="stats">
+    <div class="stat"><b>536</b><span>列表總盤數</span></div>
+    <div class="stat ok"><b id="onsaleCount">433</b><span>在售（本表全部）</span></div>
+    <div class="stat"><b>94</b><span>即將推出（未列入）</span></div>
+    <div class="stat"><b>9</b><span>意向登記（未列入）</span></div>
+  </div>
+
+  <div class="controls">
+    <input id="q" placeholder="搜尋樓盤名稱 / 地區 / 地址 / 發展商 / 編號" />
+    <select id="dist"><option value="">全部地區</option></select>
+  </div>
+  <div class="meta" id="meta">載入中…</div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>樓盤</th>
+          <th>分區</th>
+          <th class="hide-m">地址</th>
+          <th>發展商</th>
+          <th class="right">預計關鍵日期</th>
+          <th class="right">最低價</th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="backdrop" id="backdrop" aria-hidden="true">
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+    <div class="drawer-head">
+      <h2 id="detailTitle">樓盤詳情</h2>
+      <button class="close-btn" id="closeBtn" aria-label="關閉">×</button>
+    </div>
+    <p class="step" id="detailStep">步驟 1／2：本頁詳情。下一步可直達利嘉閣該盤頁面。</p>
+    <img class="cover" id="detailCover" alt="" />
+    <dl class="kv" id="detailKv"></dl>
+    <div class="actions">
+      <a class="primary" id="openRica" href="#" target="_blank" rel="noopener noreferrer">在利嘉閣查看完整資料</a>
+      <div class="target-url" id="ricaTargetHint"></div>
+      <button type="button" id="copyLink">複製本頁定位鏈接</button>
+    </div>
+  </aside>
+</div>
+
+<script>
+const state = {
+  properties: [],
+  byId: new Map(),
+  activeId: null,
+};
+
+function esc(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
+}
+
+function formatPrice(p) {
+  if (p == null) return "—";
+  if (p >= 1_000_000) return (p / 1_000_000).toFixed(2) + "M";
+  return String(p);
+}
+
+function formatDate(iso) {
+  if (!iso) return "—";
+  try {
+    return new Date(iso).toLocaleString("zh-HK", { hour12: false });
+  } catch {
+    return iso;
+  }
+}
+
+function searchBlob(p) {
+  return [
+    p.displayName, p.districtName, p.areaName, p.displayAddress,
+    p.vendor, p.developmentId, p.estimatedMaterialDateText,
+  ].join(" ").toLowerCase();
+}
+
+/** Direct Ricacorp property detail page, e.g.
+ *  https://www.ricacorp.com/zh-hk/new-property/detail/park-college-1002572
+ *  (without /detail/ the site falls back to the list page).
+ */
+function ricaPropertyUrl(p) {
+  let url = p?.url || "";
+  if (url.includes("/new-property/") && !url.includes("/new-property/detail/")) {
+    url = url.replace("/new-property/", "/new-property/detail/");
+  }
+  return url;
+}
+
+function renderTable(list) {
+  const tbody = document.getElementById("tbody");
+  tbody.innerHTML = list.map((p, i) => `
+    <tr class="prop-row${state.activeId === p.developmentId ? " active" : ""}"
+        data-id="${p.developmentId}" data-d="${esc(p.districtName || "")}">
+      <td class="small">${i + 1}</td>
+      <td>
+        <div class="name">${esc(p.displayName)}</div>
+        <div class="small">#${esc(p.developmentId)}</div>
+      </td>
+      <td>${esc(p.districtName || "—")}<div class="small">${esc(p.areaName || "—")}</div></td>
+      <td class="hide-m">${esc(p.displayAddress || "—")}</td>
+      <td>${esc(p.vendor || "—")}</td>
+      <td class="right">${esc(p.estimatedMaterialDateText || "—")}</td>
+      <td class="right">${esc(formatPrice(p.lowestPrice))}</td>
+    </tr>
+  `).join("");
+  document.getElementById("meta").textContent =
+    `顯示 ${list.length} / ${state.properties.length} 個在售新盤 · 點擊列先看本頁詳情`;
+}
+
+function filtered() {
+  const q = (document.getElementById("q").value || "").trim().toLowerCase();
+  const d = document.getElementById("dist").value;
+  return state.properties.filter((p) => {
+    if (d && p.districtName !== d) return false;
+    if (!q) return true;
+    return searchBlob(p).includes(q);
+  });
+}
+
+function refresh() {
+  renderTable(filtered());
+}
+
+function openDetail(id) {
+  const p = state.byId.get(Number(id));
+  if (!p) return;
+  state.activeId = p.developmentId;
+  refresh();
+
+  const name = p.displayName || "樓盤詳情";
+  document.getElementById("detailTitle").textContent = name;
+  document.getElementById("detailStep").textContent =
+    `步驟 1／2：已選中「${name}」。點下方按鈕直達利嘉閣該盤頁面（無需再搜尋）。`;
+
+  const cover = document.getElementById("detailCover");
+  if (p.iconPath) {
+    cover.src = p.iconPath;
+    cover.alt = name;
+    cover.style.display = "block";
+  } else {
+    cover.removeAttribute("src");
+    cover.style.display = "none";
+  }
+
+  const rows = [
+    ["物業編號", p.developmentId],
+    ["銷售狀態", p.salesStatus === "onsale" ? "在售" : (p.salesStatus || "—")],
+    ["地區", p.districtName || "—"],
+    ["支區", p.areaName || "—"],
+    ["地址", p.displayAddress || "—"],
+    ["發展商", p.vendor || "—"],
+    ["預計關鍵日期", p.estimatedMaterialDateText || "—"],
+    ["最低價", formatPrice(p.lowestPrice)],
+    ["資料更新", formatDate(p.updateTableDate)],
+  ];
+  document.getElementById("detailKv").innerHTML = rows.map(([k, v]) =>
+    `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`
+  ).join("");
+
+  const href = ricaPropertyUrl(p);
+  const rica = document.getElementById("openRica");
+  const hint = document.getElementById("ricaTargetHint");
+  if (href) {
+    rica.href = href;
+    rica.removeAttribute("aria-disabled");
+    rica.style.opacity = "1";
+    rica.style.pointerEvents = "auto";
+    rica.textContent = `步驟 2／2：在利嘉閣查看「${name}」完整資料`;
+    hint.textContent = `將直達：${href}`;
+  } else {
+    rica.href = "#";
+    rica.setAttribute("aria-disabled", "true");
+    rica.style.opacity = "0.5";
+    rica.style.pointerEvents = "none";
+    rica.textContent = "暫無利嘉閣直達鏈接";
+    hint.textContent = "";
+  }
+
+  history.replaceState(null, "", `#id=${p.developmentId}`);
+  document.getElementById("backdrop").classList.add("open");
+  document.getElementById("backdrop").setAttribute("aria-hidden", "false");
+
+  const row = document.querySelector(`tr[data-id="${p.developmentId}"]`);
+  if (row) row.scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+
+function closeDetail() {
+  document.getElementById("backdrop").classList.remove("open");
+  document.getElementById("backdrop").setAttribute("aria-hidden", "true");
+  state.activeId = null;
+  if (location.hash.startsWith("#id=")) {
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  refresh();
+}
+
+function fillDistricts() {
+  const sel = document.getElementById("dist");
+  const districts = [...new Set(state.properties.map((p) => p.districtName).filter(Boolean))].sort();
+  for (const d of districts) {
+    const o = document.createElement("option");
+    o.value = d;
+    o.textContent = d;
+    sel.appendChild(o);
+  }
+}
+
+async function boot() {
+  const res = await fetch("./ricacorp-onsale-firsthand.json");
+  const data = await res.json();
+  state.properties = data.properties || [];
+  state.byId = new Map(state.properties.map((p) => [p.developmentId, p]));
+  document.getElementById("onsaleCount").textContent = String(state.properties.length);
+  fillDistricts();
+  refresh();
+
+  const m = location.hash.match(/^#id=(\d+)$/);
+  if (m) openDetail(m[1]);
+}
+
+document.getElementById("q").addEventListener("input", refresh);
+document.getElementById("dist").addEventListener("change", refresh);
+
+document.getElementById("tbody").addEventListener("click", (e) => {
+  const tr = e.target.closest("tr.prop-row");
+  if (!tr) return;
+  openDetail(tr.dataset.id);
+});
+
+document.getElementById("closeBtn").addEventListener("click", closeDetail);
+document.getElementById("backdrop").addEventListener("click", (e) => {
+  if (e.target === e.currentTarget) closeDetail();
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeDetail();
+});
+
+// Native <a target="_blank"> only — do not preventDefault / window.open
+// (popup blockers would otherwise block step 2).
+
+document.getElementById("copyLink").addEventListener("click", async () => {
+  if (!state.activeId) return;
+  const url = `${location.origin}${location.pathname}#id=${state.activeId}`;
+  try {
+    await navigator.clipboard.writeText(url);
+    document.getElementById("copyLink").textContent = "已複製";
+    setTimeout(() => { document.getElementById("copyLink").textContent = "複製本頁定位鏈接"; }, 1200);
+  } catch {
+    prompt("複製此鏈接：", url);
+  }
+});
+
+window.addEventListener("hashchange", () => {
+  const m = location.hash.match(/^#id=(\d+)$/);
+  if (m) openDetail(m[1]);
+  else closeDetail();
+});
+
+boot().catch((err) => {
+  document.getElementById("meta").textContent = "載入失敗：" + err.message;
+});
+</script>
+</body>
+</html>
